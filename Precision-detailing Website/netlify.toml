@@ -1,0 +1,33 @@
+# ============================================================
+# NETLIFY CONFIG
+# Optional but handy. Netlify reads this automatically.
+# ============================================================
+
+[build]
+  # Static site, nothing to compile. The whole folder is published.
+  publish = "."
+  command = ""
+
+# Long cache on assets so repeat visits load instantly.
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+# Basic security headers.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"

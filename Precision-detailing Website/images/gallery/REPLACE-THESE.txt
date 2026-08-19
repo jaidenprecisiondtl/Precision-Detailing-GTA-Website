@@ -1,0 +1,22 @@
+GALLERY FOLDER
+==============
+
+Before and after pairs (each one is a single composed image,
+before on the left, after on the right):
+  ba-headlight.jpg      hazy lens restored to clear
+  ba-rear-seats.jpg     spilled candy and debris removed
+  ba-carpet.jpg         stained footwell shampooed
+  ba-interior.jpg       cloth interior deep clean
+  ba-wheel.jpg          brake dust off, tire shine on
+  ba-door-sill.jpg      sills and jambs
+
+Finished-result shot:
+  interior-deep-clean.jpg
+
+The originals these were built from are in images/incoming/.
+
+TO ADD A NEW PAIR: send the two photos and the composite gets rebuilt,
+or drop any square image in here and copy a <figure> block in the
+gallery section of index.html.
+
+Keep each file under about 300KB.

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Update this line to your real domain once it is live.
+Sitemap: https://precisiondetailinggta.netlify.app/sitemap.xml

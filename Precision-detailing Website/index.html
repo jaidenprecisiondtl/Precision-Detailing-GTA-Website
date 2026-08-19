@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ============================================================
+     SEO / PAGE META
+     Swap this copy if you change your positioning later.
+     ============================================================ -->
+<title>Mobile Car Detailing in Brampton &amp; Mississauga | Precision Detailing</title>
+<meta name="description" content="Precision Detailing brings professional mobile car detailing to your driveway across Peel Region, including Brampton, Mississauga and Caledon. Interior deep cleans, wash and ceramic protect, plus headlight restoration in Peel and London, Ontario. Book today.">
+<meta name="theme-color" content="#0A0B0D">
+
+<!-- UPDATE these two URLs once your real Netlify domain is live -->
+<link rel="canonical" href="https://precisiondetailinggta.netlify.app/">
+<meta property="og:url" content="https://precisiondetailinggta.netlify.app/">
+
+<!-- Social share preview, built from your Peel Region banner graphic.
+     Replace images/og-image.jpg with a 1200x630 photo if you prefer. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Precision Detailing | Mobile Car Detailing, Brampton &amp; Mississauga">
+<meta property="og:description" content="We come to you. Interior deep cleans, wash and ceramic protect across Peel Region. Headlight restoration in Peel and London, Ontario.">
+<meta property="og:image" content="images/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Favicon: your P mark, 256px on a black tile -->
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="favicon.png">
+
+<link rel="stylesheet" href="css/styles.css">
+
+<!-- Marks that JavaScript is running. The scroll fade-in only applies when
+     this class is present, so if JS ever fails the content still shows. -->
+<script>document.documentElement.className += " js";</script>
+</head>
+
+<body>
+
+<!-- Accessibility: lets keyboard users jump straight to the content -->
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============================================================
+     HEADER + NAV
+     ============================================================ -->
+<header class="site-header" id="siteHeader">
+  <div class="wrap header-inner">
+
+    <a class="brand" href="#hero" aria-label="Precision Detailing home">
+      <!-- Logo, rebuilt from your Google profile upload with the black
+           background removed so it sits on any dark surface.
+           Size is controlled by .brand-logo in the stylesheet. -->
+      <img class="brand-logo" fetchpriority="high" src="images/logo/logo.png" alt="Precision Detailing" width="400" height="260">
+    </a>
+
+    <!-- Mobile menu button -->
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Open menu">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+
+    <nav class="site-nav" id="siteNav" aria-label="Main">
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a class="nav-cta" href="#booking">Book Now</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============================================================
+     1. HERO
+     ============================================================ -->
+<section class="hero" id="hero">
+  <div class="wrap hero-inner">
+
+    <p class="eyebrow">Mobile Detailing &middot; We Come To You</p>
+
+    <h1>Your Car, Detailed<br><span class="accent">In Your Driveway.</span></h1>
+
+    <p class="hero-sub">
+      Precision Detailing serves all of Peel Region, including Brampton,
+      Mississauga and Caledon. We bring the tools, the product and the standard.
+      You keep your day.
+    </p>
+
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#booking">Book Now</a>
+      <a class="btn btn-ghost" href="tel:+14165647698">Call (416) 564-7698</a>
+    </div>
+
+    <!-- Quick trust strip -->
+    <ul class="trust-strip">
+      <li>All of Peel Region</li>
+      <li>Headlights also in London, ON</li>
+      <li>Same-week bookings</li>
+    </ul>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     2. SERVICES &amp; PRICING
+     ============================================================ -->
+<section class="section" id="services">
+  <div class="wrap">
+
+    <header class="section-head">
+      <p class="eyebrow">Services &amp; Pricing</p>
+      <h2>Pick your package.</h2>
+      <p class="section-sub">
+        <strong>Baseline pricing for standard 2-row vehicles.</strong>
+        Larger vehicles such as 3-row SUVs, minivans and trucks are priced individually.
+        <a href="#booking">Contact for a quote.</a>
+      </p>
+    </header>
+
+    <!-- PRICING CARDS
+         To change a price, edit the number inside <span class="price-value">.
+         To feature a different package, move the "card-featured" class. -->
+    <div class="card-grid">
+
+      <article class="card reveal">
+        <h3 class="card-title">Maintenance Clean</h3>
+        <p class="card-price"><span class="price-value">$100</span></p>
+        <ul class="card-list">
+          <li>Full interior vacuum</li>
+          <li>Dash and center console</li>
+          <li>Interior windows</li>
+        </ul>
+        <a class="btn btn-outline card-btn" href="#booking" data-service="Maintenance Clean - $100">Book This</a>
+      </article>
+
+      <article class="card reveal">
+        <h3 class="card-title">Deep Clean</h3>
+        <p class="card-price"><span class="price-value">$180</span></p>
+        <ul class="card-list">
+          <li>Everything in Maintenance Clean</li>
+          <li>Carpet shampoo</li>
+          <li>Stain and dirt extraction</li>
+        </ul>
+        <a class="btn btn-outline card-btn" href="#booking" data-service="Deep Clean - $180">Book This</a>
+      </article>
+
+      <article class="card reveal">
+        <h3 class="card-title">Wash &amp; Protect</h3>
+        <p class="card-price"><span class="price-value">$75</span></p>
+        <ul class="card-list">
+          <li>Foam wash</li>
+          <li>Rim and brake cleaning</li>
+          <li>Tire shine</li>
+          <li>Ceramic coating</li>
+        </ul>
+        <a class="btn btn-outline card-btn" href="#booking" data-service="Wash &amp; Protect - $75">Book This</a>
+      </article>
+
+      <article class="card reveal">
+        <h3 class="card-title">Silver Package</h3>
+        <p class="card-price"><span class="price-value">$160</span></p>
+        <p class="card-meta">Maintenance Clean + Wash &amp; Protect</p>
+        <ul class="card-list">
+          <li>Full interior maintenance clean</li>
+          <li>Foam wash and rim cleaning</li>
+          <li>Tire shine and ceramic coating</li>
+        </ul>
+        <a class="btn btn-outline card-btn" href="#booking" data-service="Silver Package - $160">Book This</a>
+      </article>
+
+      <article class="card card-featured reveal">
+        <span class="card-flag">Best Value</span>
+        <h3 class="card-title">Gold Package</h3>
+        <p class="card-price"><span class="price-value">$240</span></p>
+        <p class="card-meta">Deep Clean + Wash &amp; Protect</p>
+        <ul class="card-list">
+          <li>Full interior deep clean</li>
+          <li>Carpet shampoo and extraction</li>
+          <li>Foam wash, rims and tire shine</li>
+          <li>Ceramic coating</li>
+        </ul>
+        <a class="btn btn-primary card-btn" href="#booking" data-service="Gold Package - $240">Book This</a>
+      </article>
+
+    </div>
+
+    <!-- ------------------------------------------------------------
+         HEADLIGHT RESTORATION
+         Standalone service, equal weight to the packages above.
+         ------------------------------------------------------------ -->
+    <article class="feature-card reveal">
+      <div class="feature-body">
+        <p class="eyebrow">Standalone Service</p>
+        <h3 class="feature-title">Headlight Restoration</h3>
+        <p class="feature-text">
+          Hazy, yellowed headlights cut your visibility at night and age the whole front end of the car.
+          We strip the oxidation and bring the lenses back to clear, so you see more and the car looks
+          years newer. Book it on its own or add it to any package.
+        </p>
+        <ul class="feature-list">
+          <li>Restores clarity to hazy and yellowed lenses</li>
+          <li>Improves night-time visibility</li>
+          <li>Sealed to slow future oxidation</li>
+        </ul>
+
+        <!-- Headlights travel further than the rest of the menu -->
+        <p class="feature-area">
+          <strong>Available across Peel Region and in London, Ontario.</strong>
+        </p>
+      </div>
+
+      <div class="feature-side">
+        <p class="feature-price">
+          <span class="price-lead">Starting at</span>
+          <span class="price-value">$85</span>
+        </p>
+        <a class="btn btn-primary" href="#booking" data-service="Headlight Restoration - from $85">Book Headlights</a>
+      </div>
+    </article>
+
+    <!-- ------------------------------------------------------------
+         ADD-ONS (no prices, quoted on contact)
+         ------------------------------------------------------------ -->
+    <div class="addons">
+      <header class="section-head section-head-sm">
+        <h3>Add-Ons Available</h3>
+        <p class="section-sub">Stack any of these onto a package. Contact for pricing.</p>
+      </header>
+
+      <ul class="addon-list">
+        <li class="addon">
+          <h4>3rd Row Seating</h4>
+          <p>Extra seating rows get the same thorough clean.</p>
+        </li>
+        <li class="addon">
+          <h4>Pet Hair Removal</h4>
+          <p>Specialized tools for stubborn embedded pet hair.</p>
+        </li>
+        <li class="addon">
+          <h4>Deep Stain Treatment</h4>
+          <p>For set-in or heavily embedded stains.</p>
+        </li>
+        <li class="addon">
+          <h4>Leather Conditioning</h4>
+          <p>Protects and restores leather interiors.</p>
+        </li>
+
+        <!-- TEMPORARILY REMOVED. Delete these comment markers to put it back.
+             If you do, change the desktop .addon-list column count in
+             css/styles.css back to 3 so five cards still sit evenly.
+        <li class="addon">
+          <h4>Clay Bar / Paint Decontamination</h4>
+          <p>Removes bonded contaminants before wash or coating.</p>
+        </li>
+        -->
+      </ul>
+
+      <p class="addons-cta">
+        Tell us what your car needs in the booking form and we will quote it.
+        <a href="#booking">Get your quote</a>
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     3. GALLERY
+
+     Eight tiles. The first six are your before and after pairs, each
+     one composed into a single image so the split reads instantly on a
+     phone. The last two are finished-result shots.
+
+     TO ADD A PAIR: the composites were built from the originals in
+     images/incoming/. Send me a new pair and I will build the tile, or
+     drop any square image in images/gallery/ and copy a <figure> block.
+
+     Keep each file under about 300KB so the page stays quick on mobile.
+     ============================================================ -->
+<section class="section section-alt" id="gallery">
+  <div class="wrap">
+
+    <header class="section-head">
+      <p class="eyebrow">The Work</p>
+      <h2>Before and after.</h2>
+      <p class="section-sub">Real cars, real driveways, across Peel Region.</p>
+    </header>
+
+    <div class="gallery-grid">
+
+      <figure class="gallery-item reveal">
+        <img srcset="images/gallery/ba-headlight-420.jpg 420w, images/gallery/ba-headlight.jpg 720w" sizes="(min-width: 1180px) 360px, (min-width: 600px) 31vw, 46vw" src="images/gallery/ba-headlight.jpg" alt="Headlight before and after restoration, hazy yellow lens restored to clear" loading="lazy" decoding="async" width="720" height="720">
+        <figcaption>Headlight Restoration</figcaption>
+      </figure>
+
+      <figure class="gallery-item reveal">
+        <img srcset="images/gallery/ba-rear-seats-420.jpg 420w, images/gallery/ba-rear-seats.jpg 720w" sizes="(min-width: 1180px) 360px, (min-width: 600px) 31vw, 46vw" src="images/gallery/ba-rear-seats.jpg" alt="Rear leather seats before and after, spilled candy and debris fully removed" loading="lazy" decoding="async" width="720" height="720">
+        <figcaption>Rear Seats &amp; Spill Cleanup</figcaption>
+      </figure>
+
+      <figure class="gallery-item reveal">
+        <img srcset="images/gallery/ba-carpet-420.jpg 420w, images/gallery/ba-carpet.jpg 720w" sizes="(min-width: 1180px) 360px, (min-width: 600px) 31vw, 46vw" src="images/gallery/ba-carpet.jpg" alt="Driver footwell before and after, stained carpet shampooed clean" loading="lazy" decoding="async" width="720" height="720">
+        <figcaption>Carpet &amp; Footwell</figcaption>
+      </figure>
+
+      <figure class="gallery-item reveal">
+        <img srcset="images/gallery/ba-interior-420.jpg 420w, images/gallery/ba-interior.jpg 720w" sizes="(min-width: 1180px) 360px, (min-width: 600px) 31vw, 46vw" src="images/gallery/ba-interior.jpg" alt="Cloth interior before and after a full deep clean" loading="lazy" decoding="async" width="720" height="720">
+        <figcaption>Interior Deep Clean</figcaption>
+      </figure>
+
+      <figure class="gallery-item reveal">
+        <img srcset="images/gallery/ba-wheel-420.jpg 420w, images/gallery/ba-wheel.jpg 720w" sizes="(min-width: 1180px) 360px, (min-width: 600px) 31vw, 46vw" src="images/gallery/ba-wheel.jpg" alt="Wheel before and after, brake dust removed and tire shine applied" loading="lazy" decoding="async" width="720" height="720">
+        <figcaption>Rims &amp; Tire Shine</figcaption>
+      </figure>
+
+      <figure class="gallery-item reveal">
+        <img srcset="images/gallery/ba-door-sill-420.jpg 420w, images/gallery/ba-door-sill.jpg 720w" sizes="(min-width: 1180px) 360px, (min-width: 600px) 31vw, 46vw" src="images/gallery/ba-door-sill.jpg" alt="Door sill and jamb before and after cleaning" loading="lazy" decoding="async" width="720" height="720">
+        <figcaption>Door Sills &amp; Jambs</figcaption>
+      </figure>
+
+      <figure class="gallery-item reveal">
+        <img srcset="images/gallery/interior-deep-clean-420.jpg 420w, images/gallery/interior-deep-clean.jpg 720w" sizes="(min-width: 1180px) 360px, (min-width: 600px) 31vw, 46vw" src="images/gallery/interior-deep-clean.jpg" alt="Freshly detailed Volkswagen interior with the driver area spotless" loading="lazy" decoding="async" width="720" height="720">
+        <figcaption>Finished Interior</figcaption>
+      </figure>
+
+      <!-- Closing CTA tile. Spans the full grid width so the rows above
+           stay even no matter how many photos you add. -->
+      <a class="gallery-item gallery-more reveal" href="https://www.instagram.com/precisiondetailing_gta/" target="_blank" rel="noopener">
+        <span class="gallery-more-inner">
+          <span class="gallery-more-plus" aria-hidden="true">+</span>
+          <span class="gallery-more-text">See more on Instagram</span>
+        </span>
+      </a>
+
+    </div>
+
+    <p class="gallery-note">
+      New work goes up all week.
+      <a href="https://www.instagram.com/precisiondetailing_gta/" target="_blank" rel="noopener">Follow on Instagram</a>
+      and
+      <a href="https://www.tiktok.com/@precisiondetailinggta" target="_blank" rel="noopener">TikTok</a>.
+    </p>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     REVIEWS
+
+     Real Google reviews, quoted word for word.
+
+     TO ADD A NEW ONE: copy any <blockquote> block below, paste it at
+     the top of the grid, and swap the text and the name. Keep the
+     newest at the top.
+
+     Two reviews were cut off by the Google "More" link when they were
+     collected. Those two end with an ellipsis and are marked with a
+     comment. Paste the full text in whenever you grab it.
+     ============================================================ -->
+<section class="section" id="reviews">
+  <div class="wrap">
+
+    <header class="section-head">
+      <p class="eyebrow">What Clients Say</p>
+      <h2>Trusted across Peel.</h2>
+      <p class="section-sub">Straight from our Google reviews.</p>
+    </header>
+
+    <div class="review-grid">
+
+      <blockquote class="review reveal">
+        <p class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="review-text">Jaiden is very meticulous and did a great detail. Took his time and made sure our entire van was spotless. He is a conscientious, polite and thorough individual who represents his business soundly. Thank you.</p>
+        <cite>Glenn <span>Local Guide &middot; 30 reviews</span></cite>
+      </blockquote>
+
+      <blockquote class="review reveal">
+        <p class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="review-text">Jaiden provides a great service, he works hard to treat your vehicle like his own and takes his time to ensure all your needs are met!!</p>
+        <cite>Juliana Blasutta <span>5 reviews</span></cite>
+      </blockquote>
+
+      <!-- Text below was truncated by Google. Paste the full version when you have it. -->
+      <blockquote class="review reveal">
+        <p class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="review-text">This is the second time we've had our car detailed by Precision. Both times he had done an incredible job. He made our car and SUV look brand new again. You can tell he paid attention to details and really got into all the little areas ...</p>
+        <cite>Mary-Anne <span>Local Guide &middot; 19 reviews</span></cite>
+      </blockquote>
+
+      <blockquote class="review reveal">
+        <p class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="review-text">Absolutely incredible customer service, in depth attention to detail, and did not rush the process. I had a car that was full of dog hair and my car looks better then the day I picked it up from the dealership. Will definitely be using services again and can't wait to refer to everyone!</p>
+        <cite>Katelynn Nicholas <span>7 reviews</span></cite>
+      </blockquote>
+
+      <blockquote class="review reveal">
+        <p class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="review-text">Very professional. I got the wash and protect service done and they made my car looking brand new! They washed the wheels and rims really well and got the months of break dust buildup off my rims too. Highly recommend them!</p>
+        <cite>Erren Reyes <span>3 reviews</span></cite>
+      </blockquote>
+
+      <blockquote class="review reveal">
+        <p class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="review-text">Highly recommended. Very courteous and professional. Their Instagram shows their resume of how thorough and detailed their process is. Will use their services in the future.</p>
+        <cite>Mark Santos <span>13 reviews</span></cite>
+      </blockquote>
+
+      <blockquote class="review reveal">
+        <p class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="review-text">Amazing! Affordable, reliable and detailed oriented. You have to book with them!!!</p>
+        <cite>Audny-Cashae Stewart <span>Local Guide &middot; 15 reviews</span></cite>
+      </blockquote>
+
+      <!-- Text below was truncated by Google. Paste the full version when you have it. -->
+      <blockquote class="review reveal">
+        <p class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="review-text">I recently had my car detailed at Precision Detailing, and I am thrilled with the results. My car was in dire need of a deep clean, both inside and out, and they did an exceptional job.</p>
+        <cite>Jiaon Orcasitas <span>6 reviews</span></cite>
+      </blockquote>
+
+    </div>
+
+    <!-- LINK TO YOUR GOOGLE PROFILE
+         Send me your Google Business Profile URL and I will drop it in
+         here, or paste it into the href yourself and delete this comment. -->
+    <p class="reviews-cta">
+      <a href="#booking">Book your detail</a> and see why they keep coming back.
+    </p>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     4. ABOUT
+     ============================================================ -->
+<section class="section section-alt" id="about">
+  <div class="wrap about-inner">
+
+    <div class="about-copy">
+      <p class="eyebrow">About</p>
+      <h2>Detailing that comes to you.</h2>
+
+      <p>
+        Precision Detailing started with a simple idea. Nobody wants to give up a Saturday
+        sitting in a waiting room while someone else cleans their car. So we brought the shop
+        to the driveway. Same equipment, same standard, none of the drop-off.
+      </p>
+
+      <p>
+        Every job is done by hand, one car at a time. No rushing through a queue, no cutting
+        corners on the parts you cannot see. If it is not right, it does not get handed back.
+      </p>
+
+      <p>
+        Outside of detailing, I have spent six years coaching youth sports here in Brampton and
+        was recognized by the City of Brampton for that work. Same principle carries over.
+        Show up on time, do the job properly, treat people well.
+      </p>
+
+      <a class="btn btn-primary" href="#booking">Book Your Detail</a>
+    </div>
+
+    <!-- Co-owner card. The portrait is deliberately capped at 300px so it
+         displays close to its native resolution and stays sharp.
+         To swap the photo, drop a new file in images/ and update the src.
+         A 4:5 crop fits the frame without any cropping surprises. -->
+    <figure class="about-media">
+      <img src="images/about-photo.jpg"
+           srcset="images/about-photo.jpg 300w, images/about-photo-600.jpg 600w"
+           sizes="300px"
+           alt="Jaiden, co-owner of Precision Detailing" loading="lazy" decoding="async" width="300" height="375">
+      <figcaption>
+        <strong>Jaiden</strong>
+        <span>Co-Owner, Precision Detailing</span>
+      </figcaption>
+    </figure>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     5. BOOKING / CONTACT
+     ------------------------------------------------------------
+     THIS SECTION IS A SELF-CONTAINED COMPONENT.
+
+     TO SWAP IN A BOOKING WIDGET LATER (Acuity, Calendly, Square):
+       1. Delete everything between BOOKING-FORM START and
+          BOOKING-FORM END below.
+       2. Paste the widget embed code in that gap.
+     Nothing else on the page reads from this form, so the rest of
+     the site keeps working untouched.
+     ============================================================ -->
+<section class="section" id="booking">
+  <div class="wrap">
+
+    <header class="section-head">
+      <p class="eyebrow">Booking</p>
+      <h2>Lock in your spot.</h2>
+      <p class="section-sub">
+        Send this over and you get a reply the same day with a time and a confirmed quote.
+      </p>
+    </header>
+
+    <div class="booking-panel">
+
+      <!-- ===== BOOKING-FORM START ===== -->
+      <!--
+        NETLIFY FORMS SETUP
+          - data-netlify="true" registers the form automatically on deploy.
+          - The hidden "form-name" input is required by Netlify.
+          - data-netlify-honeypot enables spam filtering via the bot-field.
+          - Submissions land in: Netlify dashboard > Forms > booking
+          - Email alerts: Forms > Settings and usage > Form notifications
+          - action="/thanks.html" sends people to the thank-you page on submit.
+      -->
+      <form
+        class="booking-form"
+        name="booking"
+        method="POST"
+        action="/thanks.html"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+      >
+        <input type="hidden" name="form-name" value="booking">
+
+        <!-- Honeypot. Hidden from real users, catches bots. -->
+        <p class="hidden-field">
+          <label>Leave this field empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+        </p>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="name">Name <span class="req">*</span></label>
+            <input type="text" id="name" name="name" autocomplete="name" required placeholder="Your name">
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone <span class="req">*</span></label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" required placeholder="(416) 000-0000">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="email">Email <span class="req">*</span></label>
+          <input type="email" id="email" name="email" autocomplete="email" required placeholder="you@email.com">
+        </div>
+
+        <div class="field">
+          <label for="service">Service Interested In <span class="req">*</span></label>
+          <!-- Clicking "Book This" on any package auto-selects the match here. -->
+          <select id="service" name="service" required>
+            <option value="" disabled selected>Choose a service</option>
+            <option>Maintenance Clean - $100</option>
+            <option>Deep Clean - $180</option>
+            <option>Wash &amp; Protect - $75</option>
+            <option>Silver Package - $160</option>
+            <option>Gold Package - $240</option>
+            <option>Headlight Restoration - from $85</option>
+            <option>Add-ons only, quote me</option>
+            <option>Larger vehicle (3-row SUV, minivan, truck), quote me</option>
+            <option>Not sure yet, recommend something</option>
+          </select>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="date">Preferred Date <span class="req">*</span></label>
+            <input type="date" id="date" name="preferred-date" required>
+          </div>
+
+          <div class="field">
+            <label for="location">Location <span class="req">*</span></label>
+            <input type="text" id="location" name="location" autocomplete="address-level2" required placeholder="City and address">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="notes">Anything Else</label>
+          <textarea id="notes" name="notes" rows="4" placeholder="Vehicle year, make and model, add-ons you want, pet hair, stains, anything we should know."></textarea>
+        </div>
+
+        <!-- On-site requirement. Remove this if you add a water tank
+             and generator to the setup later. -->
+        <p class="site-note">
+          Please have an outdoor water tap and a power outlet available on the day.
+        </p>
+
+        <!-- Deposit note. Edit the amount here if it ever changes. -->
+        <p class="deposit-note">
+          A <strong>$20 deposit</strong> confirms your booking and comes off your final total.
+        </p>
+
+        <button class="btn btn-primary btn-block" type="submit">Request My Booking</button>
+
+        <p class="form-fineprint">
+          Rather talk it through? Call or text <a href="tel:+14165647698">(416) 564-7698</a>.
+        </p>
+      </form>
+      <!-- ===== BOOKING-FORM END ===== -->
+
+      <!-- Contact card. Sits beside the form on desktop, below it on mobile. -->
+      <aside class="booking-aside">
+        <h3>Reach Us Directly</h3>
+        <ul class="contact-list">
+          <li><span class="contact-label">Phone</span><a href="tel:+14165647698">(416) 564-7698</a></li>
+          <li><span class="contact-label">Email</span><a href="mailto:precisionn.detailing@gmail.com">precisionn.detailing@gmail.com</a></li>
+          <li><span class="contact-label">Instagram</span><a href="https://www.instagram.com/precisiondetailing_gta/" target="_blank" rel="noopener">@precisiondetailing_gta</a></li>
+          <li><span class="contact-label">TikTok</span><a href="https://www.tiktok.com/@precisiondetailinggta" target="_blank" rel="noopener">@precisiondetailinggta</a></li>
+        </ul>
+
+        <h3 class="aside-sub">Service Area</h3>
+        <p class="aside-text">
+          All of Peel Region, including Brampton, Mississauga and Caledon.
+          Headlight restoration also travels to London, Ontario.
+          Just outside the area? Ask anyway. We travel for the right job.
+        </p>
+
+        <!-- What the client needs to have ready.
+             Edit this if your setup changes and you add a water tank. -->
+        <h3 class="aside-sub">What We Need On Site</h3>
+        <p class="aside-text">
+          Access to an outdoor water tap and a standard power outlet.
+          Most driveways and garages already have both.
+        </p>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     6. FOOTER
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+
+    <div class="footer-brand">
+      <img class="brand-logo brand-logo-footer" loading="lazy" decoding="async" src="images/logo/logo.png" alt="Precision Detailing" width="400" height="260">
+
+      <p class="footer-tagline">Mobile detailing done properly. We come to you.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+14165647698">(416) 564-7698</a></li>
+        <li><a href="mailto:precisionn.detailing@gmail.com">precisionn.detailing@gmail.com</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Follow</h4>
+      <ul>
+        <li><a href="https://www.instagram.com/precisiondetailing_gta/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.tiktok.com/@precisiondetailinggta" target="_blank" rel="noopener">TikTok</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Service Area</h4>
+      <ul>
+        <li>Brampton</li>
+        <li>Mississauga</li>
+        <li>Caledon</li>
+        <li>All of Peel Region</li>
+        <li>London, ON (headlights)</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="wrap footer-bottom">
+    <p>&copy; <span id="year">2026</span> Precision Detailing. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Sticky mobile action bar. Hidden on desktop. -->
+<div class="mobile-bar">
+  <a class="mobile-bar-call" href="tel:+14165647698">Call</a>
+  <a class="mobile-bar-book" href="#booking">Book Now</a>
+</div>
+
+<!-- Lightbox overlay for gallery images -->
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close image">&times;</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<!-- ============================================================
+     LOCAL BUSINESS SCHEMA
+     Helps Google surface you for searches like
+     "mobile detailing Brampton" and "mobile detailing Mississauga".
+     UPDATE the url, image and logo values once your domain is live.
+     ============================================================ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoDetailing",
+  "@id": "https://precisiondetailinggta.netlify.app/#business",
+  "name": "Precision Detailing",
+  "description": "Mobile car detailing serving all of Peel Region, including Brampton, Mississauga and Caledon. Interior maintenance and deep cleans, exterior wash with ceramic coating, and headlight restoration, performed at the customer location. Headlight restoration is also available in London, Ontario.",
+  "url": "https://precisiondetailinggta.netlify.app/",
+  "image": "https://precisiondetailinggta.netlify.app/images/og-image.jpg",
+  "logo": "https://precisiondetailinggta.netlify.app/images/logo/logo.png",
+  "telephone": "+1-416-564-7698",
+  "email": "precisionn.detailing@gmail.com",
+  "priceRange": "$75-$240",
+  "currenciesAccepted": "CAD",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Brampton",
+    "addressRegion": "ON",
+    "addressCountry": "CA"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Brampton" },
+    { "@type": "City", "name": "Mississauga" },
+    { "@type": "City", "name": "Caledon" },
+    { "@type": "AdministrativeArea", "name": "Peel Region" }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/precisiondetailing_gta/",
+    "https://www.tiktok.com/@precisiondetailinggta"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Mobile Detailing Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "priceCurrency": "CAD",
+        "price": "100",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Maintenance Clean",
+          "description": "Interior vacuum, dash and center console, interior windows. Baseline price for standard 2-row vehicles."
+        }
+      },
+      {
+        "@type": "Offer",
+        "priceCurrency": "CAD",
+        "price": "180",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Deep Clean",
+          "description": "Everything in the Maintenance Clean plus carpet shampoo and stain and dirt extraction."
+        }
+      },
+      {
+        "@type": "Offer",
+        "priceCurrency": "CAD",
+        "price": "75",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Wash and Protect",
+          "description": "Foam wash, rim and brake cleaning, tire shine and ceramic coating."
+        }
+      },
+      {
+        "@type": "Offer",
+        "priceCurrency": "CAD",
+        "price": "160",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Silver Package",
+          "description": "Maintenance Clean combined with Wash and Protect."
+        }
+      },
+      {
+        "@type": "Offer",
+        "priceCurrency": "CAD",
+        "price": "240",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Gold Package",
+          "description": "Deep Clean combined with Wash and Protect."
+        }
+      },
+      {
+        "@type": "Offer",
+        "priceCurrency": "CAD",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "priceCurrency": "CAD",
+          "minPrice": "85"
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Brampton" },
+          { "@type": "City", "name": "Mississauga" },
+          { "@type": "City", "name": "Caledon" },
+          { "@type": "AdministrativeArea", "name": "Peel Region" },
+          { "@type": "City", "name": "London", "containedInPlace": { "@type": "AdministrativeArea", "name": "Ontario" } }
+        ],
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Headlight Restoration",
+          "description": "Restores clarity to hazy, yellowed headlights, improving visibility and appearance. Starting at 85 CAD. Available across Peel Region and in London, Ontario."
+        }
+      }
+    ]
+  }
+}
+</script>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

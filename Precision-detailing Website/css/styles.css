@@ -1,0 +1,1226 @@
+/* ============================================================
+   PRECISION DETAILING
+   Mobile-first stylesheet.
+
+   Structure of this file:
+     1.  Design tokens (colors, spacing, type)
+     2.  Base and reset
+     3.  Buttons
+     4.  Header and navigation
+     5.  Hero
+     6.  Section shells
+     7.  Pricing cards
+     8.  Headlight restoration feature
+     9.  Add-ons
+     10. Gallery and lightbox
+     11. Reviews
+     12. About
+     13. Booking form
+     14. Footer
+     15. Sticky mobile bar
+     16. Reveal animation
+     17. Desktop breakpoints
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   1. DESIGN TOKENS
+   All brand colors live here. Change them in one place and the
+   whole site follows. Values are pulled from the logo:
+   black background, light blue primary, silver secondary.
+   ------------------------------------------------------------ */
+:root {
+  /* Backgrounds */
+  --bg:          #08090B;   /* page black */
+  --bg-alt:      #0D0F13;   /* alternating section band */
+  --surface:     #12151A;   /* cards and panels */
+  --surface-2:   #171B21;   /* raised / hover state */
+
+  /* Brand accents.
+     Sampled straight from the logo file, so these match it exactly. */
+  --blue:        #60B3F9;   /* the logo blue */
+  --blue-bright: #8ACCFB;   /* hover / highlight */
+  --blue-deep:   #2A7FBE;   /* gradients and shadows */
+  --silver:      #D8D8D8;   /* the logo silver */
+  --silver-dim:  #929599;   /* muted silver for body copy */
+
+  /* Text */
+  --text:        #F4F6F8;
+  --text-muted:  #9CA1A8;
+
+  /* Lines */
+  --line:        rgba(216, 216, 216, 0.14);
+  --line-blue:   rgba(96, 179, 249, 0.35);
+
+  /* Layout */
+  --wrap:        1140px;
+  --radius:      14px;
+  --radius-sm:   10px;
+
+  /* Spacing scale */
+  --s-1: 0.5rem;
+  --s-2: 0.875rem;
+  --s-3: 1.25rem;
+  --s-4: 2rem;
+  --s-5: 3rem;
+  --s-6: 4.5rem;
+
+  /* Effects */
+  --shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+  --glow:   0 0 0 1px var(--line-blue), 0 10px 30px rgba(96, 179, 249, 0.14);
+
+  /* Type.
+     Uses the system font stack so nothing has to download.
+     Want a custom font? Add a Google Fonts <link> in index.html
+     and put the family name at the front of this list. */
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+}
+
+
+/* ------------------------------------------------------------
+   2. BASE AND RESET
+   ------------------------------------------------------------ */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  /* Stops sticky header from covering anchor targets */
+  scroll-padding-top: 84px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  /* Room for the sticky mobile action bar */
+  padding-bottom: 68px;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--blue); text-decoration: none; }
+a:hover { color: var(--blue-bright); }
+
+h1, h2, h3, h4 {
+  margin: 0 0 var(--s-2);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+h1 { font-size: clamp(2.1rem, 8vw, 3.6rem); }
+h2 { font-size: clamp(1.7rem, 5.5vw, 2.5rem); }
+h3 { font-size: 1.25rem; }
+
+p { margin: 0 0 var(--s-2); }
+
+ul { margin: 0; padding: 0; list-style: none; }
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Small blue label above headings */
+.eyebrow {
+  color: var(--blue);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: var(--s-1);
+}
+
+.accent { color: var(--blue); }
+
+/* Keyboard-only skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--blue);
+  color: #04070A;
+  padding: 10px 16px;
+  z-index: 999;
+  font-weight: 700;
+}
+.skip-link:focus { left: 8px; top: 8px; }
+
+/* Visible focus ring for keyboard users */
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+
+/* ------------------------------------------------------------
+   3. BUTTONS
+   ------------------------------------------------------------ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 26px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.2s ease,
+              border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+.btn:active { transform: translateY(1px); }
+
+/* Primary: light blue fill, dark text */
+.btn-primary {
+  background: linear-gradient(180deg, var(--blue-bright), var(--blue));
+  color: #04070A;
+  box-shadow: 0 8px 24px rgba(96, 179, 249, 0.25);
+}
+.btn-primary:hover {
+  background: linear-gradient(180deg, #9BD8FA, var(--blue-bright));
+  color: #04070A;
+  box-shadow: 0 10px 30px rgba(96, 179, 249, 0.38);
+}
+
+/* Ghost: silver outline on dark */
+.btn-ghost {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--silver);
+}
+.btn-ghost:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+  background: rgba(96, 179, 249, 0.06);
+}
+
+/* Outline: blue outline, used on standard pricing cards */
+.btn-outline {
+  background: transparent;
+  border-color: var(--line-blue);
+  color: var(--blue);
+}
+.btn-outline:hover {
+  background: rgba(96, 179, 249, 0.1);
+  border-color: var(--blue);
+  color: var(--blue-bright);
+}
+
+.btn-block { display: flex; width: 100%; }
+
+
+/* ------------------------------------------------------------
+   4. HEADER AND NAVIGATION
+   ------------------------------------------------------------ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(8, 9, 11, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+/* Adds a stronger backdrop once the page scrolls (toggled in main.js) */
+.site-header.scrolled {
+  background: rgba(8, 9, 11, 0.96);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 76px;
+  gap: var(--s-2);
+}
+
+.brand { display: flex; align-items: center; }
+
+/* The logo is a stacked lockup (mark above the wordmark), so it needs
+   more height than a wide logo would to keep "DETAILING" legible. */
+.brand-logo {
+  height: 52px;
+  width: auto;
+  display: block;
+}
+
+/* Hamburger */
+.nav-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0 10px;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  cursor: pointer;
+}
+.nav-toggle-bar {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--silver);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile dropdown nav */
+.site-nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #0A0C10;
+  border-bottom: 1px solid var(--line);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.site-nav.open { max-height: 380px; }
+
+.site-nav ul { padding: var(--s-1) 20px var(--s-3); }
+.site-nav li { border-bottom: 1px solid var(--line); }
+.site-nav li:last-child { border-bottom: 0; }
+
+.site-nav a {
+  display: block;
+  padding: 15px 2px;
+  color: var(--silver);
+  font-weight: 600;
+  font-size: 1rem;
+}
+.site-nav a:hover { color: var(--blue); }
+
+.site-nav .nav-cta {
+  margin-top: var(--s-2);
+  text-align: center;
+  background: linear-gradient(180deg, var(--blue-bright), var(--blue));
+  color: #04070A;
+  border-radius: 999px;
+  padding: 13px 20px;
+}
+.site-nav .nav-cta:hover { color: #04070A; }
+
+
+/* ------------------------------------------------------------
+   5. HERO
+   ------------------------------------------------------------ */
+.hero {
+  position: relative;
+  padding: var(--s-5) 0 var(--s-5);
+  overflow: hidden;
+  /* Soft blue light bleeding in from the top, over black.
+
+     WANT A PHOTO BACKGROUND?
+     Add this line below the gradients and drop the file in /images:
+       url("../images/hero.jpg")
+     then add: background-size: cover; background-position: center; */
+  background:
+    radial-gradient(900px 420px at 50% -12%, rgba(96, 179, 249, 0.20), transparent 70%),
+    radial-gradient(600px 300px at 85% 15%, rgba(30, 127, 184, 0.12), transparent 70%),
+    var(--bg);
+}
+
+/* Thin blue divider at the bottom of the hero */
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--blue), transparent);
+  opacity: 0.5;
+}
+
+.hero-inner { text-align: center; }
+
+.hero h1 { margin-bottom: var(--s-3); }
+
+.hero-sub {
+  max-width: 560px;
+  margin: 0 auto var(--s-4);
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  max-width: 340px;
+  margin: 0 auto var(--s-4);
+}
+
+.trust-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--s-1) var(--s-3);
+  color: var(--silver-dim);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.trust-strip li { display: flex; align-items: center; gap: 7px; }
+/* Small blue dot before each item */
+.trust-strip li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex: none;
+}
+
+
+/* ------------------------------------------------------------
+   6. SECTION SHELLS
+   ------------------------------------------------------------ */
+.section { padding: var(--s-6) 0; }
+.section-alt { background: var(--bg-alt); }
+
+.section-head {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto var(--s-4);
+}
+.section-head-sm { margin-bottom: var(--s-3); }
+
+.section-sub {
+  color: var(--text-muted);
+  font-size: 0.98rem;
+  margin: 0;
+}
+.section-sub strong { color: var(--silver); }
+
+
+/* ------------------------------------------------------------
+   7. PRICING CARDS
+   ------------------------------------------------------------ */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-3);
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: var(--s-4) var(--s-3) var(--s-3);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--line-blue);
+  box-shadow: var(--shadow);
+}
+
+/* The highlighted package */
+.card-featured {
+  border-color: var(--line-blue);
+  background: linear-gradient(180deg, rgba(96, 179, 249, 0.07), var(--surface) 55%);
+  box-shadow: var(--glow);
+}
+
+.card-flag {
+  position: absolute;
+  top: -11px;
+  left: var(--s-3);
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--blue-bright), var(--blue));
+  color: #04070A;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+
+.card-price { margin: 0 0 var(--s-2); }
+
+.price-value {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--blue);
+  line-height: 1;
+}
+
+.card-meta {
+  color: var(--silver-dim);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: var(--s-2);
+}
+
+.card-list {
+  margin-bottom: var(--s-3);
+  flex-grow: 1;
+  border-top: 1px solid var(--line);
+  padding-top: var(--s-2);
+}
+.card-list li {
+  position: relative;
+  padding: 5px 0 5px 22px;
+  color: var(--text-muted);
+  font-size: 0.93rem;
+}
+/* Blue check mark */
+.card-list li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 12px;
+  width: 10px;
+  height: 5px;
+  border-left: 2px solid var(--blue);
+  border-bottom: 2px solid var(--blue);
+  transform: rotate(-45deg);
+}
+
+.card-btn { width: 100%; }
+
+
+/* ------------------------------------------------------------
+   8. HEADLIGHT RESTORATION FEATURE
+   Standalone service block. Deliberately full width so it carries
+   the same weight as the package cards above.
+   ------------------------------------------------------------ */
+.feature-card {
+  margin-top: var(--s-4);
+  padding: var(--s-4) var(--s-3);
+  background:
+    radial-gradient(500px 220px at 100% 0%, rgba(96, 179, 249, 0.14), transparent 70%),
+    var(--surface);
+  border: 1px solid var(--line-blue);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.feature-title {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  margin-bottom: var(--s-2);
+}
+
+.feature-text {
+  color: var(--text-muted);
+  margin-bottom: var(--s-3);
+}
+
+.feature-list { margin-bottom: var(--s-3); }
+.feature-list li {
+  position: relative;
+  padding: 5px 0 5px 22px;
+  color: var(--silver);
+  font-size: 0.93rem;
+}
+.feature-list li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 12px;
+  width: 10px;
+  height: 5px;
+  border-left: 2px solid var(--blue);
+  border-bottom: 2px solid var(--blue);
+  transform: rotate(-45deg);
+}
+
+/* Service area line under the headlight bullets */
+.feature-area {
+  margin: 0 0 var(--s-2);
+  padding: 10px 14px;
+  background: rgba(96, 179, 249, 0.07);
+  border-left: 3px solid var(--blue);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  color: var(--silver);
+  font-size: 0.9rem;
+}
+.feature-area strong { color: var(--blue); font-weight: 700; }
+
+.feature-side {
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  align-items: flex-start;
+}
+
+.feature-price {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0;
+}
+.price-lead {
+  color: var(--silver-dim);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+
+/* ------------------------------------------------------------
+   9. ADD-ONS
+   ------------------------------------------------------------ */
+.addons {
+  margin-top: var(--s-6);
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--line);
+}
+
+.addon-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-2);
+}
+
+.addon {
+  padding: var(--s-3);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--blue);
+  border-radius: var(--radius-sm);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.addon:hover { background: var(--surface-2); transform: translateX(3px); }
+
+.addon h4 {
+  font-size: 1rem;
+  margin-bottom: 3px;
+  color: var(--text);
+}
+.addon p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.addons-cta {
+  margin-top: var(--s-3);
+  text-align: center;
+  color: var(--silver-dim);
+  font-size: 0.95rem;
+}
+
+
+/* ------------------------------------------------------------
+   10. GALLERY AND LIGHTBOX
+   ------------------------------------------------------------ */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.gallery-item {
+  position: relative;
+  margin: 0;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  cursor: pointer;
+}
+.gallery-item img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  transition: transform 0.35s ease, opacity 0.25s ease;
+}
+.gallery-item:hover img { transform: scale(1.05); opacity: 0.92; }
+
+.gallery-item figcaption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 22px 10px 8px;
+  background: linear-gradient(180deg, transparent, rgba(4, 6, 9, 0.9));
+  color: var(--silver);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* Play triangle on video tiles */
+.play-badge {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(8, 9, 11, 0.72);
+  border: 1px solid var(--line-blue);
+  backdrop-filter: blur(4px);
+}
+.play-badge::before {
+  content: "";
+  position: absolute;
+  top: 50%; left: 54%;
+  transform: translate(-50%, -50%);
+  border-style: solid;
+  border-width: 9px 0 9px 15px;
+  border-color: transparent transparent transparent var(--blue);
+}
+
+/* The "see more" tile that closes out the grid. It is a normal square
+   tile, so with seven photos it fills the eighth slot and the rows on
+   mobile stay even. If your photo count ever becomes even, switch this
+   to grid-column: 1 / -1 to make it a full-width bar instead. */
+.gallery-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  text-align: center;
+  padding: 12px;
+  background: linear-gradient(160deg, rgba(96, 179, 249, 0.10), var(--surface) 70%);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.gallery-more:hover {
+  border-color: var(--blue);
+  background: linear-gradient(160deg, rgba(96, 179, 249, 0.18), var(--surface) 70%);
+}
+/* Square tile, so the plus stacks above the text */
+.gallery-more-inner { display: block; }
+.gallery-more-plus {
+  display: block;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--blue);
+  margin-bottom: 8px;
+}
+.gallery-more-text {
+  display: block;
+  color: var(--silver);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.gallery-note {
+  margin-top: var(--s-3);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+/* Tap-to-enlarge overlay */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(4, 5, 7, 0.94);
+  backdrop-filter: blur(6px);
+}
+.lightbox[hidden] { display: none; }
+.lightbox img {
+  max-width: 100%;
+  max-height: 86vh;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line-blue);
+}
+.lightbox-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  font-size: 1.9rem;
+  line-height: 1;
+  color: var(--silver);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  cursor: pointer;
+}
+.lightbox-close:hover { color: var(--blue); border-color: var(--blue); }
+
+
+/* ------------------------------------------------------------
+   11. REVIEWS
+   ------------------------------------------------------------ */
+.review-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-3);
+}
+
+.review {
+  margin: 0;
+  padding: var(--s-3);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  /* Keeps the name pinned to the bottom so cards in a row line up */
+  display: flex;
+  flex-direction: column;
+}
+.review .review-text { flex-grow: 1; }
+
+.stars {
+  color: var(--blue);
+  letter-spacing: 3px;
+  font-size: 0.95rem;
+  margin-bottom: var(--s-1);
+}
+
+.review-text {
+  color: var(--text-muted);
+  font-size: 0.96rem;
+  margin-bottom: var(--s-2);
+}
+
+.review cite {
+  display: block;
+  font-style: normal;
+  font-weight: 700;
+  color: var(--silver);
+  font-size: 0.9rem;
+}
+.review cite span {
+  display: block;
+  font-weight: 500;
+  color: var(--silver-dim);
+  font-size: 0.8rem;
+}
+
+.reviews-cta {
+  margin-top: var(--s-4);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+
+/* ------------------------------------------------------------
+   12. ABOUT
+   ------------------------------------------------------------ */
+.about-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-4);
+  align-items: center;
+}
+
+.about-copy p {
+  color: var(--text-muted);
+  margin-bottom: var(--s-2);
+}
+.about-copy .btn { margin-top: var(--s-2); }
+
+/* Owner card. Capped at 300px so the portrait renders close to its
+   native size and stays sharp instead of being stretched to fill. */
+.about-media {
+  margin: 0 auto;
+  max-width: 300px;
+  text-align: center;
+}
+.about-media img {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--line-blue);
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+.about-media figcaption {
+  margin-top: var(--s-2);
+  line-height: 1.4;
+}
+.about-media figcaption strong {
+  display: block;
+  color: var(--text);
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+}
+.about-media figcaption span {
+  color: var(--silver-dim);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+
+/* ------------------------------------------------------------
+   13. BOOKING FORM
+   ------------------------------------------------------------ */
+.booking-panel {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-3);
+}
+
+.booking-form {
+  padding: var(--s-3);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.field { margin-bottom: var(--s-2); }
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-2);
+}
+
+.field label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--silver);
+}
+.req { color: var(--blue); }
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 13px 14px;
+  background: #0A0C10;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-family: inherit;
+  /* 16px keeps iOS from zooming in on focus */
+  font-size: 16px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.field textarea { resize: vertical; min-height: 96px; }
+
+.field input::placeholder,
+.field textarea::placeholder { color: #5C6672; }
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(96, 179, 249, 0.16);
+}
+
+/* Native select arrow, drawn in blue */
+.field select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--blue) 50%),
+    linear-gradient(135deg, var(--blue) 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) calc(50% + 2px),
+    calc(100% - 14px) calc(50% + 2px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  padding-right: 40px;
+}
+
+/* Makes the date picker icon visible on a dark field */
+.field input[type="date"] { color-scheme: dark; }
+
+/* Netlify honeypot, hidden from people but present in the DOM */
+.hidden-field { display: none; }
+
+/* Quiet requirement line above the deposit note */
+.site-note {
+  margin: var(--s-3) 0 0;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  font-size: 0.87rem;
+}
+
+.deposit-note {
+  margin: var(--s-2) 0 var(--s-3);
+  padding: 12px 14px;
+  border-left: 3px solid var(--blue);
+  background: rgba(96, 179, 249, 0.07);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  color: var(--silver);
+  font-size: 0.9rem;
+}
+.deposit-note strong { color: var(--blue); }
+
+.form-fineprint {
+  margin: var(--s-2) 0 0;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.87rem;
+}
+
+/* Contact card beside the form */
+.booking-aside {
+  padding: var(--s-3);
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  align-self: start;
+}
+.booking-aside h3 { font-size: 1rem; color: var(--blue); }
+.aside-sub { margin-top: var(--s-3); }
+.aside-text { color: var(--text-muted); font-size: 0.92rem; margin: 0; }
+
+.contact-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+.contact-list li:last-child { border-bottom: 0; }
+.contact-label {
+  display: block;
+  color: var(--silver-dim);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.contact-list a { font-size: 0.95rem; word-break: break-word; }
+
+
+/* ------------------------------------------------------------
+   14. FOOTER
+   ------------------------------------------------------------ */
+.site-footer {
+  background: #050608;
+  border-top: 1px solid var(--line);
+  padding: var(--s-5) 0 var(--s-3);
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-3);
+}
+
+.brand-logo-footer { height: 62px; margin-bottom: var(--s-2); }
+
+.footer-tagline {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  max-width: 280px;
+}
+
+.footer-col h4 {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: var(--s-1);
+}
+.footer-col li {
+  padding: 4px 0;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+.footer-col a { color: var(--silver); }
+.footer-col a:hover { color: var(--blue); }
+
+.footer-bottom {
+  margin-top: var(--s-4);
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--line);
+}
+.footer-bottom p {
+  margin: 0;
+  color: var(--silver-dim);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+
+/* ------------------------------------------------------------
+   15. STICKY MOBILE BAR
+   Always-visible call and book buttons. Desktop hides it.
+   ------------------------------------------------------------ */
+.mobile-bar {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 120;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 8px;
+  padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+  background: rgba(8, 9, 11, 0.94);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--line);
+}
+.mobile-bar a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.mobile-bar-call {
+  border: 1px solid var(--line);
+  color: var(--silver);
+}
+.mobile-bar-book {
+  background: linear-gradient(180deg, var(--blue-bright), var(--blue));
+  color: #04070A;
+}
+.mobile-bar-book:hover { color: #04070A; }
+
+
+/* ------------------------------------------------------------
+   16. REVEAL ANIMATION
+   Elements with .reveal fade up as they scroll into view.
+   Handled by IntersectionObserver in js/main.js.
+
+   The .js prefix means this only applies when JavaScript is running.
+   If JS ever fails, everything stays visible instead of blank.
+   ------------------------------------------------------------ */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.js .reveal.visible { opacity: 1; transform: none; }
+
+/* Respect users who ask for less motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+
+/* ============================================================
+   17. DESKTOP BREAKPOINTS
+   Everything above is the mobile layout. These only widen it.
+   ============================================================ */
+
+/* --- Small tablets and up --- */
+@media (min-width: 600px) {
+  .hero-actions {
+    flex-direction: row;
+    justify-content: center;
+    max-width: none;
+  }
+  .field-row { grid-template-columns: 1fr 1fr; }
+  .addon-list { grid-template-columns: 1fr 1fr; }
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .review-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-inner { grid-template-columns: repeat(2, 1fr); gap: var(--s-4); }
+}
+
+/* --- Tablets and up --- */
+@media (min-width: 800px) {
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+  .review-grid { grid-template-columns: repeat(3, 1fr); }
+  .booking-panel { grid-template-columns: 1.5fr 1fr; }
+  /* Narrower media column so the 300px owner card does not float in space */
+  .about-inner { grid-template-columns: 1.5fr 0.8fr; }
+  .booking-form { padding: var(--s-4); }
+
+  .feature-card {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: var(--s-4);
+    align-items: center;
+    padding: var(--s-4);
+  }
+  .feature-side {
+    padding-top: 0;
+    border-top: 0;
+    border-left: 1px solid var(--line);
+    padding-left: var(--s-4);
+    align-items: flex-start;
+  }
+  .feature-price { flex-direction: column; align-items: flex-start; gap: 2px; }
+  .feature-price .price-value { font-size: 3rem; }
+}
+
+/* --- Desktop: swap the mobile menu for a full nav bar --- */
+@media (min-width: 940px) {
+  html { scroll-padding-top: 96px; }
+  body { padding-bottom: 0; }
+
+  .header-inner { min-height: 88px; }
+  .brand-logo { height: 62px; }
+
+  .nav-toggle { display: none; }
+  .mobile-bar { display: none; }
+
+  .site-nav {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    background: transparent;
+    border: 0;
+  }
+  .site-nav ul {
+    display: flex;
+    align-items: center;
+    gap: var(--s-3);
+    padding: 0;
+  }
+  .site-nav li { border: 0; }
+  .site-nav a { padding: 8px 0; font-size: 0.95rem; }
+  .site-nav .nav-cta { margin-top: 0; padding: 11px 22px; }
+
+  .hero { padding: var(--s-6) 0; }
+  .card-grid { grid-template-columns: repeat(3, 1fr); }
+  /* Four add-ons, so four across sits as one clean row.
+     Put this back to repeat(3, 1fr) if the fifth add-on returns. */
+  .addon-list { grid-template-columns: repeat(4, 1fr); }
+
+  .footer-inner {
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: var(--s-4);
+  }
+  .footer-bottom p { text-align: left; }
+}
+
+/* --- Large desktop --- */
+@media (min-width: 1200px) {
+  .hero { padding: 6rem 0 5rem; }
+}
