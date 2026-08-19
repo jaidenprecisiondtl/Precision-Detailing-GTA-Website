@@ -12,17 +12,27 @@
 <meta name="description" content="Precision Detailing brings professional mobile car detailing to your driveway across Peel Region, including Brampton, Mississauga and Caledon. Interior deep cleans, wash and ceramic protect, plus headlight restoration in Peel and London, Ontario. Book today.">
 <meta name="theme-color" content="#0A0B0D">
 
-<!-- UPDATE these two URLs once your real Netlify domain is live -->
 <link rel="canonical" href="https://precisiondetailinggta.ca/">
 <meta property="og:url" content="https://precisiondetailinggta.ca/">
 
-<!-- Social share preview, built from your Peel Region banner graphic.
-     Replace images/og-image.jpg with a 1200x630 photo if you prefer. -->
+<!-- Social share preview: the Precision Detailing logo on black, 1200x630.
+     These URLs must stay absolute - Facebook, LinkedIn, iMessage and
+     WhatsApp all ignore a relative og:image and show no preview at all. -->
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Precision Detailing">
 <meta property="og:title" content="Precision Detailing | Mobile Car Detailing, Brampton &amp; Mississauga">
 <meta property="og:description" content="We come to you. Interior deep cleans, wash and ceramic protect across Peel Region. Headlight restoration in Peel and London, Ontario.">
-<meta property="og:image" content="images/og-image.jpg">
+<meta property="og:image" content="https://precisiondetailinggta.ca/images/og-logo.jpg">
+<meta property="og:image:secure_url" content="https://precisiondetailinggta.ca/images/og-logo.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Precision Detailing logo">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Precision Detailing | Mobile Car Detailing, Brampton &amp; Mississauga">
+<meta name="twitter:description" content="We come to you. Interior deep cleans, wash and ceramic protect across Peel Region. Headlight restoration in Peel and London, Ontario.">
+<meta name="twitter:image" content="https://precisiondetailinggta.ca/images/og-logo.jpg">
+<meta name="twitter:image:alt" content="Precision Detailing logo">
 
 <!-- Favicon: your P mark, 256px on a black tile -->
 <link rel="icon" href="favicon.png" type="image/png">
@@ -470,10 +480,18 @@
          To swap the photo, drop a new file in images/ and update the src.
          A 4:5 crop fits the frame without any cropping surprises. -->
     <figure class="about-media">
-      <img src="images/about-photo.jpg"
-           srcset="images/about-photo.jpg 300w, images/about-photo-600.jpg 600w"
-           sizes="300px"
-           alt="Jaiden, co-owner of Precision Detailing" loading="lazy" decoding="async" width="300" height="375">
+      <!-- WebP first for browsers that take it, JPEG fallback for the rest.
+           Both carry a 600w candidate so 2x screens get the full-resolution
+           file instead of upscaling the 300w one. -->
+      <picture>
+        <source type="image/webp"
+                srcset="images/about-photo-300.webp 300w, images/about-photo-600.webp 600w"
+                sizes="300px">
+        <img src="images/about-photo.jpg"
+             srcset="images/about-photo.jpg 300w, images/about-photo-600.jpg 600w"
+             sizes="300px"
+             alt="Jaiden, co-owner of Precision Detailing" loading="lazy" decoding="async" width="300" height="375">
+      </picture>
       <figcaption>
         <strong>Jaiden</strong>
         <span>Co-Owner, Precision Detailing</span>
